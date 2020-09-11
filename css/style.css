@@ -21,10 +21,18 @@ img {
 /* styles for five day forecast colors */
 .fiveDayColor {
     padding: 20px;
-    background-color: #1E90FF;
+    background-color: #f81eff;
     color: white;
     float: left;
     margin: 10px;
     border: 1px solid lightgray;
 
+}
+/* styles for body  */
+body {
+    background-color: azure;
+}
+
+.button {
+    background-color: #f81eff;
 }

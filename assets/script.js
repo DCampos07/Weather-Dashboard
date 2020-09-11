@@ -18,6 +18,7 @@ function loadHistory(){
     }
 }
 
+
 // Key count for local storage 
 var keyCount = 0;
 // Search button click event
@@ -30,8 +31,7 @@ searchButton.click(function () {
             cityName.append("<li>" + searchInput + "</li>");
             console.log (searchInput)
             // Local storage
-        if (searchHistory.indexOf(searchInput) === -1){searchHistory.push(searchInput);}
-           window.localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
     // Variable for current weather working 
     var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
