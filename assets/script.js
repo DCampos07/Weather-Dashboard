@@ -46,15 +46,7 @@ searchButton.click(function () {
             url: urlCurrent,
             method: "GET"
         }).then(function (response) {
-            // list-group append an li to it with just set text
-            // console.log(response.name);
-
-
-        //     var cityName = $(".list-group").addClass("list-group-item");
-        //    cityName.attr("data-index", response.name);
-        //     cityName.append("<li>" + response.name + "</li>");
-        //     // Local storage
-        //     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            
             keyCount = keyCount + 1;
 
             // Start Current Weather append 
