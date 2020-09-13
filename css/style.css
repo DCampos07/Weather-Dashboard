@@ -21,18 +21,14 @@ img {
 /* styles for five day forecast colors */
 .fiveDayColor {
     padding: 20px;
-    background-color: #f81eff;
-    color: white;
+    background-color: #ccf0e5;
+    color: rgba(29, 5, 97, 0.842);
     float: left;
     margin: 10px;
     border: 1px solid lightgray;
 
 }
 /* styles for body  */
-body {
-    background-color: azure;
-}
-
-.button {
-    background-color: #f81eff;
+.card {
+    background-color: rgb(101, 211, 211);
 }

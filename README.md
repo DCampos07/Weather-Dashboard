@@ -24,10 +24,3 @@ While using the OpenWeather API to retrieve weather data for cities I was tasked
 ### Sources Links:
 * [GitHub Repository]()
 * [Deployed GitHub IO](https://dcampos07.github.io/Weather-Dashboard/)
-
-### Project Screenshot
-
-![scheduler-screenshot.png]()
-
-
-

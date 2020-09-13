@@ -11,11 +11,13 @@ function loadHistory(){
     var list = document.getElementById("saved-searches");
     for (var i = 0; i < searchHistory.length; i++) {
         var cityName = document.createElement("li");
+        var cityName2 = document.createElement("<a>");
+        cityName2.setAttribute(href, "#");
         cityName.classList.add("saved-items");
         cityName.innerHTML = searchHistory [i];
         cityName.setAttribute("data-index", searchHistory[i]);
+        cityName.append(cityName2);
         list.append(cityName);
-
     }
 }
 
@@ -28,6 +30,8 @@ searchButton.click(function () {
     var searchInput  = $(".searchInput").val();
     var list = document.getElementById("saved-searches");
     var cityName = document.createElement("li");
+ 
+
     cityName.innerHTML = searchInput;
            cityName.setAttribute("data-index", searchInput);
            cityName.classList.add("saved-items");
@@ -113,8 +117,19 @@ searchButton.click(function () {
     }
 });
 
+// $(document).ready(function() {
+//     $(“#searchInput”).keyup(function(event) {
+//       if (event.which === 13) {
+//         $(“.button-addon2").click();
+//       }
+//     });
+//     $(“#submit”).click(function() {
+//       alert(‘clicked!’);
+//     })
+//   });
+
 $(".saved-items").on("click", function(){
-    var city = $(this).attr("data-city");
+    var city = $(this).attr(".data-city");
     console.log(city)
     alert ("hello");
     getCurrentWeather(city);
