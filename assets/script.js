@@ -1,23 +1,22 @@
 // Variables 
 var searchButton = $(".searchButton");
+var cityListEl = document.querySelector("#city-list");
 
 var apiKey = "b8ecb570e32c2e5042581abd004b71bb";
 
 var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
-console.log (searchHistory)
-//var city = "" || searchHistory[0];
+
 
 // Forloop for persisting the data onto HMTL page
 function loadHistory(){
-    for (var i = 0; i < searchHistory.length; i++) {
 
-        // console.log(localStorage.getItem("City"));
+    for (var i = 0; i < searchHistory.length; i++) {
         var cityName = $(".list-group").addClass("list-group-item");
         cityName.attr("data-index", searchHistory[i]);
         cityName.append("<li>" + searchHistory[i] + "</li>");
+
     }
 }
-
 
 // Key count for local storage 
 var keyCount = 0;
@@ -29,7 +28,7 @@ searchButton.click(function () {
     var cityName = $(".list-group").addClass("list-group-item");
            cityName.attr("data-index", searchInput);
             cityName.append("<li>" + searchInput + "</li>");
-            console.log (searchInput)
+            
             // Local storage
             localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
@@ -40,7 +39,8 @@ searchButton.click(function () {
 
 
     if (searchInput == "") {
-        console.log(searchInput);
+       //
+    
     } else {
         $.ajax({
             url: urlCurrent,
@@ -114,3 +114,11 @@ searchButton.click(function () {
 $(document).ready(function() {
     loadHistory();
     });
+
+
+// Event Listener for the Search Button
+cityListEl.addEventListener("submit", formSubmitHandler)
+
+// Event Listener for the Saved Search Buttons
+savedSearchesContainerEl.addEventListener("click", savedSearchesHandler)
+
