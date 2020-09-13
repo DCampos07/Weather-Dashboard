@@ -1,36 +1,40 @@
 // Variables 
 var searchButton = $(".searchButton");
-var cityListEl = document.querySelector("#city-list");
+var cityListEl = $("#city-list");
 
 var apiKey = "b8ecb570e32c2e5042581abd004b71bb";
 
 var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
-
-// Forloop for persisting the data onto HMTL page
+// Forloop for persisting the data on the DOM
 function loadHistory(){
-
+    var list = document.getElementById("saved-searches");
     for (var i = 0; i < searchHistory.length; i++) {
-        var cityName = $(".list-group").addClass("list-group-item");
-        cityName.attr("data-index", searchHistory[i]);
-        cityName.append("<li>" + searchHistory[i] + "</li>");
+        var cityName = document.createElement("li");
+        cityName.classList.add("saved-items");
+        cityName.innerHTML = searchHistory [i];
+        cityName.setAttribute("data-index", searchHistory[i]);
+        list.append(cityName);
 
     }
 }
 
 // Key count for local storage 
 var keyCount = 0;
+
 // Search button click event
 searchButton.click(function () {
 
-    var searchInput = $(".searchInput").val();
-
-    var cityName = $(".list-group").addClass("list-group-item");
-           cityName.attr("data-index", searchInput);
-            cityName.append("<li>" + searchInput + "</li>");
+    var searchInput  = $(".searchInput").val();
+    var list = document.getElementById("saved-searches");
+    var cityName = document.createElement("li");
+    cityName.innerHTML = searchInput;
+           cityName.setAttribute("data-index", searchInput);
+           cityName.classList.add("saved-items");
+           list.append(cityName);
             
-            // Local storage
-            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+            // // Local storage
+            // localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
 
     // Variable for current weather working 
     var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
@@ -103,22 +107,16 @@ searchButton.click(function () {
                 FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
 
                 fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
-
-
             })
 
         });
     }
 });
 
-$(document).ready(function() {
-    loadHistory();
-    });
-
-
-// Event Listener for the Search Button
-cityListEl.addEventListener("submit", formSubmitHandler)
-
-// Event Listener for the Saved Search Buttons
-savedSearchesContainerEl.addEventListener("click", savedSearchesHandler)
+$(".saved-items").on("click", function(){
+    var city = $(this).attr("data-city");
+    console.log(city)
+    alert ("hello");
+    getCurrentWeather(city);
+});
 
