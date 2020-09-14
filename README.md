@@ -26,4 +26,4 @@ While using the OpenWeather API to retrieve weather data for cities I was tasked
 
 #### Project Screenshot
 
-![weather-dashboard.jpeg]()
+![weather-dashboard.png](https://github.com/DCampos07/Weather-Dashboard/blob/master/assets/weather-dashboard.png)
