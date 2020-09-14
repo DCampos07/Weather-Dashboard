@@ -1,4 +1,4 @@
-/* styles for UL */
+
 ul {
     list-style: none;
 
@@ -31,4 +31,10 @@ img {
 /* styles for body  */
 .card {
     background-color: rgb(101, 211, 211);
+}
+
+a {
+    color: rgba(29, 5, 97, 0.842;
+    text-decoration: none;
+    background-color: transparent;
 }
